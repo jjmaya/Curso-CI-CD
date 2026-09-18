@@ -1,5 +1,10 @@
 # Notas de clase
 
+## Links cursos
+Platzi - Azure Devops
+https://platzi.com/cursos/azure-devops/permisos-y-grupos-de-usuarios-en-azure-d/
+Diplomado Javeriana
+https://educacioncontinua.javerianacali.edu.co/d2l/le/enhancedSequenceViewer/401153?url=https%3A%2F%2F4d08695f-f803-489f-8d3e-2e68a7e386fc.sequences.api.brightspace.com%2F401153%2Factivity%2F3073364%3FfilterOnDatesAndDepth%3D1
 
 ## Clase 3/20.
 
@@ -242,3 +247,75 @@ Existen varias herramientas de infraestructura como código, cada una con sus fo
 
 En última instancia, la mejor herramienta depende de las necesidades específicas del proyecto, el entorno de implementación y las habilidades del equipo.
 
+#################################
+# VISUAL STREAM MAPPING
+#################################
+1. Gestión del flujo de valor en un entorno ágil
+Muchas organizaciones enfrentan obstaculos para alacanzar los resultados prometidos por Agile, y un obstaculo común son los *silos organizativos*.
+
+¿Qué es la gestión del flujo de valor?
+Es una *solución sistemática* para comprender y mejorar el **flujo de valor empresarial**. Desde la solicitud del cliente hasta la entrega de valor. Este enfoque va más allá del compromiso tradicional y busca **impulsar la mejora continua y generar más valor para el cliente** (Jeff Rosenbaugh).
+
+El flujo de valor es: La secuencia de pasos que agregan valor para el cliente.Enotnces, se trata de optimizar los desperdicios y optimizar el proceso basado en ese flujo. Desde una perspectiva ágil el flujo de valor permite:
+* Priorizar resultados sobre la producción de funciones. Escencal para cerrar la brecha entre prácticas ágiles y la verdadera promesa de valor. 
+
+En mis palabras. Uno puede ágilizar tambien tareas que no generan nada, tareas basura. Por tanto, entender el flujo de valor es crucial, para priorizar aquellas actividades que le dan valor al cliente y 
+por tanto tienen un ROI (sea economico, temporal, de lobby) mucho más palpable que otras actividades.
+
+2. Beneficios de la gestión del flujo de valor.
+flowchart TD
+    A["Aceleración del tiempo<br/>de obtención de valor"] --> B["Alineación de equipos<br/>multifuncionales"]
+    B --> C["Medición clara del<br/>desempeño del sistema"]
+    C --> D["Inversiones basadas<br/>en datos"]
+    D --> E["Eliminación de desperdicios<br/>y mejora de la efectividad"]
+    E --> A
+
+* Aceleración del tiempo para obtener valor: Al enfocarse en el flujo completo, naturalmente se obtiene valor de forma más rapida.
+* Alineación de equipos multifuncionales: Objetivos comunes, priorización de tareas criticas y eliminación de duplicidad.
+* Medición clara del desempeño del sistema: Al medir proporciona una visual/comprensión transparente de los flujos de valor permitiendouna medición mas acertiva.
+* Permite presupuestar los flujos completos y no segmentado por poryectos.
+* Eliminación de desperdicios y mejora de la efectividad: Porque al levantar el flujo, se detecta y se eliminan desperdicios del ciclo, esto aumenta la eficiencia y reduce la sobrecarga de los equipos.
+
+3. Errores comunes en la gestión del flujo de valor.
+A pesar de sus beneficios, las organizaciones pueden resistirse a adoptar la gestión del flujo de valor debido a:
+* *Alterar el Statu Quo:* El cambio puede revelar prioridades desalineadas e ineficiencias, lo que algunas organizaciones prefieren evitar.
+* *Sesgo de sofisticación:* La percepción de que la gestión del flujo de valor es demasiado simple o que requiere inversiones costosas puede ser un obstáculo.
+* *Entornos laborales cambiantes:* La transición a entornos de trabajo híbridos y remotos requiere adaptaciones en la forma en que se mapean y gestionan los flujos de valor.
+
+4. ¿Qué medir en los flujos de valor?
+* **Tasa de entrega de valor (Flow Velocity):** cantidad de elementos de flujo completados en un periodo determinado. Su objetivo es medir cuánto valor logra terminar el sistema en una ventana de tiempo dada.
+* **Tiempo de flujo (Flow Time):** tiempo total que tarda un elemento de flujo desde que inicia el trabajo hasta que se completa, incluyendo tanto tiempo activo como tiempo de espera. Sirve para evaluar la velocidad real de entrega.
+* **Carga de flujo (Flow Load):** número de elementos de flujo que se encuentran en progreso al mismo tiempo dentro del flujo de valor. Ayuda a detectar sobrecarga, exceso de trabajo en curso y cuellos de botella.
+* **Distribución del flujo (Flow Distribution):** proporción de los distintos tipos de trabajo completados en un periodo, por ejemplo funcionalidades, defectos, deuda técnica o riesgos. Permite entender en qué se está consumiendo la capacidad del equipo.
+
+Estas métricas se correlacionan con resultados comerciales deseados, conectando el trabajo con el impacto al cliente, el negocio y los ingresos.
+
+5. KPIs adicionales útiles en este contexto.
+* **Eficiencia de flujo (Flow Efficiency):** porcentaje del tiempo total en que un elemento realmente estuvo siendo trabajado frente al tiempo que permaneció esperando. Es útil para identificar desperdicio dentro del proceso.
+* **Frecuencia de despliegue:** número de despliegues a producción realizados en un periodo determinado. Permite medir la capacidad del pipeline para entregar cambios de forma continua.
+* **Tasa de fallos por cambio (Change Failure Rate):** porcentaje de despliegues o cambios que generan incidentes, rollback o degradación del servicio. Complementa la velocidad con una visión de estabilidad.
+* **Tiempo medio de recuperación (MTTR):** tiempo promedio necesario para restaurar el servicio después de una falla en producción. Indica la resiliencia operativa del flujo.
+* **Predictibilidad de entrega:** porcentaje de compromisos cumplidos frente a lo planificado para una iteración, sprint o periodo de entrega. Es clave para saber si el flujo produce resultados confiables para el negocio.
+
+6. Herramientas para la gestión del flujo de valor.
+* **Lucidchart:** herramienta de diagramación que interviene en la etapa de modelado del flujo. Sirve para mapear el flujo de valor, visualizar etapas, actores, dependencias, cuellos de botella y puntos de espera.
+* **Miro:** pizarra colaborativa que interviene en la construcción colectiva del flujo. Ayuda a talleres de descubrimiento, identificación de desperdicios, priorización de mejoras y alineación entre negocio, desarrollo y operaciones.
+* **Jira:** herramienta de gestión del trabajo que interviene en la ejecución y seguimiento del flujo. Permite visualizar backlog, trabajo en curso, estados, tiempos de ciclo y bloqueos sobre cada ítem de valor.
+* **Azure DevOps:** plataforma que interviene en la trazabilidad del flujo desde la demanda hasta la entrega. Integra tableros, repositorios, pipelines y despliegues para seguir cómo una necesidad del cliente avanza hasta producción.
+* **Planview Viz:** herramienta especializada en value stream management que interviene en la medición integral del flujo. Consolida datos de distintas herramientas para calcular métricas como Flow Velocity, Flow Time, Flow Load y Flow Distribution.
+
+7. Consejos para la implementación.
+
+La implementación de la gestión del flujo de valor no debería abordarse como una actividad aislada, sino como una práctica continua de observación, medición y mejora. Una forma útil de hacerlo es seguir estos pasos:
+
+* **1. Comenzar de forma sencilla:** el primer esfuerzo debe centrarse en visualizar el flujo actual sin intentar optimizar todo al mismo tiempo. Lo recomendable es seleccionar un flujo concreto, por ejemplo desde que se solicita un cambio hasta que se despliega en producción, y mapear solo sus etapas principales. Aquí son útiles metodologías como **Lean**, porque ayudan a identificar desperdicio, y **Kanban**, porque permite visualizar el trabajo en curso y limitarlo. Un ejemplo sería iniciar con un tablero simple de cinco estados: solicitud, análisis, desarrollo, pruebas y despliegue. Esto da una primera fotografía real del sistema antes de introducir más detalle.
+
+* **2. Aplicar mapeo inverso:** en lugar de comenzar describiendo tareas internas, conviene partir del resultado que espera el cliente o el negocio y retroceder hasta encontrar qué actividades permiten alcanzarlo. Esta lógica es propia del **Value Stream Mapping (VSM)** y también se alinea con enfoques de **product thinking**, donde primero se define el valor entregado. Por ejemplo, si la meta es reducir el tiempo para publicar una mejora crítica, se puede empezar desde la liberación en producción y retroceder hacia pruebas, desarrollo, análisis, aprobación y solicitud original. Esto ayuda a diferenciar pasos que agregan valor de pasos que solo agregan espera o burocracia.
+
+* **3. Abrazar el aprendizaje continuo:** ningún flujo queda bien definido desde el primer intento. La organización necesita revisar datos, detectar patrones y ajustar tanto el proceso como los roles involucrados. Aquí encajan muy bien **Kaizen**, **retrospectivas ágiles** y el ciclo **PDCA (Plan-Do-Check-Act)**, porque convierten la mejora en una disciplina recurrente. Un ejemplo práctico sería revisar cada dos semanas el tiempo de flujo y la carga de flujo para detectar si las aprobaciones están retrasando la entrega. Si el cuello de botella aparece siempre en el mismo punto, el aprendizaje debe traducirse en un cambio concreto del proceso.
+
+* **4. Mantener un documento vivo:** el mapa del flujo, sus políticas y sus métricas deben actualizarse conforme cambia la realidad operativa. No sirve documentar una vez y archivar, porque el flujo evoluciona con nuevas herramientas, nuevas dependencias y nuevas formas de trabajo. Este principio puede apoyarse en prácticas de **gestión del conocimiento**, **documentación continua** y **gobernanza ligera de procesos**. Un ejemplo sería mantener en Confluence, Notion o una wiki interna un mapa del flujo con responsables, criterios de entrada y salida por etapa, métricas observadas y mejoras pendientes. Así, el documento deja de ser descriptivo y se convierte en una herramienta de gestión.
+
+* **5. Preguntar por qué de manera sistemática:** cuando aparece un retraso, retrabajo o falla, no conviene quedarse en la explicación superficial. La técnica de los **Cinco Porqués** permite profundizar hasta llegar a causas raíz, y puede complementarse con **Ishikawa** o análisis de causa raíz. Por ejemplo, si una entrega se retrasa, la primera respuesta puede ser "faltaron pruebas"; al seguir preguntando por qué, puede descubrirse que no había ambientes disponibles, que la automatización era insuficiente o que la definición de terminado era ambigua. La intervención correcta cambia por completo cuando se entiende la causa raíz real.
+
+En conjunto, estos pasos permiten implementar la gestión del flujo de valor de manera progresiva y con foco en resultados. La clave no es mapear por mapear, sino usar el mapa, las métricas y el aprendizaje para tomar decisiones que reduzcan tiempos, eliminen desperdicios y aumenten la entrega de valor.
