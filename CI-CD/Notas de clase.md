@@ -319,3 +319,392 @@ La implementación de la gestión del flujo de valor no debería abordarse como 
 * **5. Preguntar por qué de manera sistemática:** cuando aparece un retraso, retrabajo o falla, no conviene quedarse en la explicación superficial. La técnica de los **Cinco Porqués** permite profundizar hasta llegar a causas raíz, y puede complementarse con **Ishikawa** o análisis de causa raíz. Por ejemplo, si una entrega se retrasa, la primera respuesta puede ser "faltaron pruebas"; al seguir preguntando por qué, puede descubrirse que no había ambientes disponibles, que la automatización era insuficiente o que la definición de terminado era ambigua. La intervención correcta cambia por completo cuando se entiende la causa raíz real.
 
 En conjunto, estos pasos permiten implementar la gestión del flujo de valor de manera progresiva y con foco en resultados. La clave no es mapear por mapear, sino usar el mapa, las métricas y el aprendizaje para tomar decisiones que reduzcan tiempos, eliminen desperdicios y aumenten la entrega de valor.
+
+#################################
+# SEGURIDAD EN DevOps
+#################################
+## 1. Automatización de pruebas de seguridad
+
+### Concepto
+La automatización de pruebas de seguridad busca incorporar controles de seguridad directamente en los pipelines CI/CD para detectar vulnerabilidades de forma temprana. OWASP destaca que DevSecOps incorpora actividades como SAST, DAST, IAST, análisis de dependencias (SCA) y escaneo de infraestructura dentro del ciclo de entrega continua. [Fuente: OWASP DevSecOps Guideline]
+
+### Ejemplos concretos
+- Ejecutar SonarQube o CodeQL en cada Pull Request.
+- Escanear dependencias con Dependabot o Snyk.
+- Ejecutar OWASP ZAP automáticamente antes de promover una versión a producción.
+- Analizar imágenes Docker en busca de vulnerabilidades antes de publicarlas.
+
+### Caso real
+Log4Shell (2021) afectó millones de sistemas debido a una vulnerabilidad en Log4j. Las organizaciones con procesos automatizados de escaneo de dependencias pudieron identificar los sistemas afectados mucho más rápido.
+
+### Lecturas recomendadas
+- https://owasp.org/projects/devsecops-guideline
+- https://devguide.owasp.org/en/09-operations/01-devsecops/
+- https://learn.microsoft.com/es-es/training/modules/introduction-to-secure-devops/
+
+### Cursos
+- Microsoft Learn: Introducción a Secure DevOps
+- Coursera: Introduction to DevSecOps
+
+---
+
+## 2. Gestión de configuración segura
+
+### Concepto
+Consiste en asegurar que servidores, aplicaciones, contenedores y servicios mantengan configuraciones seguras y consistentes.
+
+### Ejemplos
+- Deshabilitar servicios innecesarios.
+- Utilizar Infrastructure as Code (Terraform, Bicep).
+- Gestionar secretos mediante Azure Key Vault o Hashicorp Vault.
+- Implementar políticas automáticas de configuración en Kubernetes.
+
+### Caso real
+Numerosas brechas en AWS han ocurrido debido a buckets S3 configurados erróneamente y expuestos públicamente.
+
+### Lecturas
+- OWASP DevSecOps Guideline
+- Azure DevSecOps
+
+---
+
+## 3. Monitoreo y detección temprana
+
+### Concepto
+La seguridad no termina con el despliegue. Debe existir monitoreo continuo para detectar actividad sospechosa.
+
+### Ejemplos
+- Microsoft Sentinel para correlación de eventos.
+- Detección de accesos anómalos.
+- Alertas sobre escalamiento de privilegios.
+- Detección de ejecución de código sospechoso.
+
+### Caso real
+El ataque a SolarWinds mostró la importancia de monitorear continuamente tanto el pipeline como los entornos productivos.
+
+---
+
+## 4. Segmentación y control de acceso
+
+### Concepto
+NIST define Zero Trust como un paradigma donde ningún usuario o dispositivo recibe confianza implícita solamente por su ubicación en la red.
+
+### Ejemplos
+- MFA obligatorio.
+- Acceso Just-In-Time para administradores.
+- Separación de ambientes Desarrollo, QA y Producción.
+- Microsegmentación de redes.
+
+### Caso de uso
+Un desarrollador puede acceder al repositorio Git, pero no a la base de datos productiva.
+
+### Lecturas
+- NIST SP 800-207 Zero Trust Architecture.
+- Microsoft Zero Trust.
+
+---
+
+## 5. Gestión de vulnerabilidades
+
+### Concepto
+Proceso continuo de identificación, clasificación, priorización y remediación de vulnerabilidades.
+
+### Ejemplos
+- Escaneo semanal con Nessus.
+- Clasificación según CVSS.
+- Parcheo automatizado de sistemas.
+
+### Caso real
+La vulnerabilidad Log4Shell mostró la necesidad de inventarios de software actualizados y escaneo permanente.
+
+---
+
+## 6. Educación y concienciación
+
+### Concepto
+La seguridad efectiva requiere una cultura organizacional en la que desarrolladores, operadores y responsables de negocio conozcan los riesgos de seguridad.
+
+### Ejemplos
+- Simulaciones de phishing.
+- Laboratorios OWASP Juice Shop.
+- Talleres de Secure Coding.
+
+### Recurso recomendado
+OWASP WebGoat y OWASP Juice Shop.
+
+---
+
+## 7. Principio de responsabilidad compartida
+
+### Concepto
+DevSecOps promueve que la seguridad sea responsabilidad de todos los equipos y no exclusivamente del área de seguridad.
+
+Microsoft indica que DevSecOps convierte la seguridad en una responsabilidad compartida respaldada por automatización, validaciones continuas y políticas integradas al ciclo de desarrollo.
+
+### Ejemplo
+- Desarrollo corrige vulnerabilidades.
+- Operaciones protege infraestructura.
+- Seguridad define controles y monitorea riesgos.
+
+---
+
+## 8. Evaluación y mejora continua
+
+### Concepto
+OWASP SAMM proporciona un modelo de madurez para evaluar y mejorar continuamente la postura de seguridad del desarrollo de software.
+
+### Ejemplos de métricas
+- Tiempo promedio de remediación.
+- Porcentaje de cobertura SAST.
+- Vulnerabilidades críticas abiertas.
+- Cobertura de MFA.
+
+### Lecturas
+- https://owasp.org/projects/samm
+- https://owaspsamm.org/
+
+# Integración de seguridad en pipelines CI/CD: aportes del video
+
+El video aterriza los conceptos generales de DevSecOps a controles concretos que pueden incorporarse en un pipeline de Integración Continua y Despliegue Continuo (CI/CD). Mientras el material del módulo explica la importancia de la automatización de pruebas de seguridad y la gestión de identidades y accesos (IAM), el video detalla qué controles específicos deben automatizarse y en qué momento del pipeline aplicarlos.
+
+1. Análisis Estático de Código (SAST)
+¿Qué es?
+
+El análisis estático de seguridad (Static Application Security Testing - SAST) consiste en revisar el código fuente sin necesidad de ejecutar la aplicación. El objetivo es detectar vulnerabilidades, errores de programación y malas prácticas antes de que el código sea integrado al repositorio principal.
+
+Hallazgos típicos
+Credenciales hardcodeadas.
+Inyecciones SQL.
+Validaciones insuficientes de entrada.
+Uso inseguro de criptografía.
+Exposición de información sensible.
+Herramientas mencionadas en el video
+SonarQube
+ESLint
+Checkmarx
+Ejemplo práctico
+
+Supongamos que un desarrollador introduce el siguiente código:
+
+query = "SELECT * FROM usuarios WHERE id = " + user_input
+
+
+Una herramienta SAST detectaría que el código es vulnerable a SQL Injection incluso antes de ejecutar la aplicación.
+
+Caso real
+
+La vulnerabilidad SQL Injection continúa formando parte de las categorías más frecuentes identificadas por OWASP en aplicaciones web empresariales.
+
+Lecturas recomendadas
+OWASP Code Review Guide
+https://docs.sonarsource.com/
+
+2. Escaneo de Dependencias (SCA)
+¿Qué es?
+
+El análisis de composición de software (Software Composition Analysis - SCA) busca identificar vulnerabilidades en bibliotecas de terceros utilizadas por la aplicación.
+
+Actualmente la mayoría de los proyectos modernos contienen más código de terceros que código propio, lo que convierte esta práctica en una de las más importantes del pipeline.
+
+Herramienta mencionada
+OWASP Dependency Check
+Ejemplo práctico
+
+Si una aplicación utiliza:
+
+log4j 2.14.1
+
+
+un escaneo SCA identificaría la vulnerabilidad Log4Shell y bloquearía su despliegue hasta actualizarla.
+
+Caso real
+
+Log4Shell (CVE-2021-44228) afectó millones de sistemas en todo el mundo porque la librería vulnerable estaba presente en innumerables aplicaciones empresariales.
+
+Recursos
+OWASP Dependency Check
+https://nvd.nist.gov/
+
+3. Pruebas Automáticas de Seguridad
+¿Qué son?
+
+Son pruebas integradas al pipeline que validan automáticamente la aplicación y la infraestructura buscando vulnerabilidades conocidas.
+
+Vulnerabilidades mencionadas en el video
+SQL Injection
+Cross-Site Scripting (XSS)
+Configuraciones inseguras
+Herramientas mencionadas
+OWASP ZAP
+Nessus
+Ejemplo práctico
+
+Después de desplegar una aplicación en un entorno temporal:
+
+Build
+ ↓
+Deploy temporal
+ ↓
+OWASP ZAP Scan
+ ↓
+Promover a Producción
+
+
+Si se detecta un formulario vulnerable a XSS, el pipeline falla automáticamente.
+
+Beneficios
+Retroalimentación inmediata para el desarrollador.
+Menor costo de corrección.
+Menos vulnerabilidades en producción.
+
+4. Análisis Dinámico de Seguridad (DAST)
+¿Qué es?
+
+A diferencia del SAST, el análisis dinámico (Dynamic Application Security Testing - DAST) evalúa la aplicación mientras está ejecutándose.
+
+Qué detecta
+Errores de autenticación.
+Configuraciones inseguras.
+Exposición de APIs.
+Fallos en sesiones.
+Vulnerabilidades explotables en tiempo de ejecución.
+Ejemplo práctico
+
+Un escáner DAST revisa una aplicación desplegada e identifica que:
+
+/api/clientes
+
+
+permite acceder a información sin autenticación adecuada.
+
+| Característica | SAST (Static Application Security Testing) | DAST (Dynamic Application Security Testing) |
+|----------------|--------------------------------------------|---------------------------------------------|
+| Momento de ejecución | Durante el desarrollo | Después del despliegue |
+| Objeto analizado | Código fuente | Aplicación en ejecución |
+| Requiere aplicación desplegada | No | Sí |
+| Detecta | Errores de programación, malas prácticas y vulnerabilidades en el código | Fallos explotables en tiempo de ejecución y configuraciones inseguras |
+| Velocidad | Generalmente más rápido | Generalmente más lento |
+| Ventaja principal | Identifica problemas tempranamente | Simula escenarios más cercanos a un ataque real |
+| Ejemplos de herramientas | SonarQube, Checkmarx, CodeQL | OWASP ZAP, Burp Suite, Nessus |
+
+5. Verificación de Cumplimiento
+¿Qué es?
+
+El video enfatiza que los pipelines pueden validar automáticamente requisitos regulatorios y políticas internas.
+
+Marcos normativos mencionados
+PCI DSS
+HIPAA
+Ejemplos
+PCI DSS
+
+En sistemas que procesan tarjetas de crédito:
+
+Cifrado obligatorio.
+Registro de eventos.
+Restricción de privilegios.
+HIPAA
+
+En sistemas de salud:
+
+Protección de información médica.
+Control de accesos.
+Auditoría de actividades.
+Beneficio
+
+El cumplimiento deja de ser una auditoría puntual y pasa a evaluarse continuamente.
+
+6. Automatización de Parches y Actualizaciones
+¿Qué es?
+
+El video destaca la importancia de automatizar la aplicación de parches de seguridad.
+
+Ejemplo
+
+Pipeline:
+
+Nueva imagen Docker
+    ↓
+Escaneo de vulnerabilidades
+    ↓
+Actualización automática
+    ↓
+Pruebas
+    ↓
+Despliegue
+
+Beneficios
+Reduce ventanas de exposición.
+Disminuye errores manuales.
+Mejora tiempos de remediación.
+Caso real
+
+Muchas organizaciones afectadas por ransomware habían postergado actualizaciones críticas que ya contaban con parches disponibles.
+
+7. Monitoreo Continuo
+¿Qué es?
+
+El video resalta que la seguridad debe extenderse a:
+
+Desarrollo
+Pruebas
+Producción
+Capacidades recomendadas
+SIEM
+Alertas automáticas
+Detección de anomalías
+Correlación de eventos
+Herramientas recomendadas
+Microsoft Sentinel
+Splunk
+Elastic Security
+Caso de uso
+
+Detectar:
+
+Usuario de Desarrollo
+↓
+Acceso inusual a Producción
+↓
+Alerta automática
+↓
+Respuesta inmediata
+
+Arquitectura DevSecOps sugerida
+
+```mermaid
+flowchart TD
+    A[Repositorio Git] --> B[SAST<br/>SonarQube / Checkmarx]
+    B --> C[SCA<br/>Dependency Check]
+    C --> D[Build]
+    D --> E[Pruebas de Seguridad<br/>OWASP ZAP / Nessus]
+    E --> F[Despliegue Temporal]
+    F --> G[DAST<br/>Pruebas en ejecución]
+    G --> H[Compliance<br/>PCI DSS / HIPAA]
+    H --> I[Producción]
+    I --> J[Monitoreo Continuo<br/>Sentinel / Splunk]
+```
+
+Conclusiones clave del video
+
+Los conceptos nuevos o ampliados respecto al material original son:
+
+Diferenciación clara entre SAST y DAST.
+Importancia específica del escaneo de dependencias (SCA).
+Incorporación de validaciones de cumplimiento normativo dentro del pipeline.
+Automatización de parches y actualizaciones de seguridad.
+Seguridad entendida como una cadena continua desde el desarrollo hasta producción.
+Herramientas concretas para implementar DevSecOps: SonarQube, ESLint, Checkmarx, OWASP Dependency Check, OWASP ZAP y Nessus.
+Necesidad de automatizar al máximo los controles para detectar problemas tempranamente y reducir riesgos durante el despliegue.
+
+Todo esto complementa directamente el contenido base del módulo sobre automatización de pruebas de seguridad, IAM e integración de la seguridad a lo largo del ciclo de vida del desarrollo descrito en ScreenshotsDeSeguridad.docx>.
+
+# Fuentes
+
+1. OWASP DevSecOps Guideline: https://owasp.org/projects/devsecops-guideline
+2. OWASP Developer Guide - DevSecOps: https://devguide.owasp.org/en/09-operations/01-devsecops/
+3. Microsoft Learn - Introducción a Secure DevOps: https://learn.microsoft.com/es-es/training/modules/introduction-to-secure-devops/
+4. Microsoft Security - What is DevSecOps: https://www.microsoft.com/es-es/security/business/security-101/what-is-devsecops
+5. NIST SP 800-207 Zero Trust Architecture: https://csrc.nist.gov/pubs/sp/800/207/final
+6. OWASP SAMM: https://owasp.org/projects/samm
+7. OWASP SAMM Model: https://owaspsamm.org/
